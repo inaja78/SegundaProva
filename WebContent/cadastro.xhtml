@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"			
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cadastro</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid>
+			<h:outputLabel id="lbTitulo" for="titulo" value="Titulo"></h:outputLabel>
+				<h:inputText id="titulo" value="#{cadastroManaged.livroLista.titulo}"
+					size="10" maxlength="10" 
+					requiredMessage="Informe o Titulo do Livro"></h:inputText>
+					
+			<h:outputLabel id="lbAutor" for="autor" value="Autor"></h:outputLabel>
+				<h:inputText id="autor" value="#{cadastroManaged.livroLista.autor}"
+					size="10" maxlength="10" 
+					requiredMessage="Informe o Autor do livro"></h:inputText>
+					
+			<h:outputLabel id="lbAssunto" for="assunto" value="Assunto"></h:outputLabel>
+				<h:inputText id="assunto" value="#{cadastroManaged.livroLista.assunto}"
+					size="10" maxlength="10" 
+					requiredMessage="Informe o Assunto do Livro"></h:inputText>	
+					
+			<h:outputLabel id="LbTipo" value="Livro" for="livro"></h:outputLabel>
+				<h:selectOneRadio id="tipo" value="#{cadastroManaged.livroLista.tipoPublicacao}">
+					<f:selectItem itemValue="1" itemLabel="livro"></f:selectItem>
+					<f:selectItem itemValue="2" itemLabel="artigo"></f:selectItem>
+					<f:selectItem itemValue="3" itemLabel="periodico"></f:selectItem>
+				</h:selectOneRadio>			
+		</h:panelGrid>
+		<br />
+			<h:commandButton value="Inicio" action="index.xhtml" />
+		<br />	
+	</h:form>
+
+</h:body>
+</html>

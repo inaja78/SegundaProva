@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Tela Principal</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputText value="Lista de Livros" />
+		<br />
+		<br />
+		<h:outputLabel value="Titulo:" /> 
+		<h:inputText id="titulo" value="#{livroManaged.livroLista}" />
+		<h:commandButton value="Pesquisar" action="#{livroManaged.pesquisarLivro}" />
+		<br />
+		<br />
+		<h:dataTable styleClass="tabela" value="#{livroManaged.livroLista}"
+			border="1" headerClass="cabecalho" columnClasses="ultimo,primeiro"
+			var="livro" rendered="#{!empty livroManaged.livroLista}">
+			<h:column>
+				<h:outputLabel value="Titulo" />
+				<h:inputText id="titulo" value="#{livro.titulo} "/>
+			</h:column>
+			<h:column>
+				<h:commandButton value="Editar" action="#{cadastroManaged.cadastroLivro}">
+					<f:setPropertyActionListener value="#{livroManaged}" target="#{cadastroManaged.livroLista}" />
+				</h:commandButton>
+			</h:column>
+			<h:column>
+				<h:commandButton value="Excluir" action="#{livroManaged.excluir}">
+					<f:setPropertyActionListener value="#{livroManaged}" target="#{livroManaged.livroLista}" />
+				</h:commandButton>
+			</h:column>
+			</h:dataTable>
+			<br />
+			<h:commandButton value="Cadastrar" action="cadastro.xhtml" />
+			<br />
+		
+		</h:form>
+</h:body>
+</html>
